@@ -37,23 +37,30 @@ public class GeneralDataController {
 
     @CrossOrigin
     @PostMapping(value = "/GeneralData")
-    public GeneralData generalDataAdd(@RequestParam("UserId") String userId,
+    public GeneralData generalDataAdd(@RequestParam("userId") String userId,
                                       @RequestParam("height") Float height,
                                       @RequestParam("weight") Float weight,
                                       @RequestParam("waistline") Float waistline,
                                       @RequestParam("BMI") Float BMI,
-                                      @RequestParam("bloodPressure") Float bloodPressure,
+                                      @RequestParam("bloodPressureL") Float bloodPressureL,
+                                      @RequestParam("bloodPressureH") Float bloodPressureH,
                                       @RequestParam("medicationHis") String medicationHis,
+                                      @RequestParam("medicationHis_select") String medicationHis_select,
                                       @RequestParam("allergicHis") String allergicHis,
+                                      @RequestParam("allergicHis_select") String allergicHis_select,
                                       @RequestParam("Summarize") String Summarize){
+        logger.info("userId:"+userId);
        GeneralData data = new GeneralData();
        data.setUserId(userId);
        data.setHeight(height);
        data.setWeight(weight);
        data.setWaistline(waistline);
        data.setBMI(BMI);
-       data.setBloodPressure(bloodPressure);
+       data.setBloodPressureL(bloodPressureL);
+        data.setBloodPressureH(bloodPressureH);
        data.setMedicationHis(medicationHis);
+       data.setAllergicHis_select(allergicHis_select);
+       data.setMedicationHis_select(medicationHis_select);
        data.setAllergicHis(allergicHis);
        data.setSummarize(Summarize);
         return generalDataRespository.save(data);

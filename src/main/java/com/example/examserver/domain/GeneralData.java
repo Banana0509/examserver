@@ -16,13 +16,13 @@ public class GeneralData {
     private Float weight;
     private Float waistline;
     private Float BMI;
-    private Float bloodPressure;
-    private String medicationHis;
+    private Float bloodPressureL;
+    private Float  bloodPressureH;
+    private String  medicationHis;
+    private String medicationHis_select;
     private String allergicHis;
+    private String allergicHis_select;
     private String Summarize;
-
-    public GeneralData() {
-    }
 
     public String getUserId() {
         return userId;
@@ -64,12 +64,20 @@ public class GeneralData {
         this.BMI = BMI;
     }
 
-    public Float getBloodPressure() {
-        return bloodPressure;
+    public Float getBloodPressureL() {
+        return bloodPressureL;
     }
 
-    public void setBloodPressure(Float bloodPressure) {
-        this.bloodPressure = bloodPressure;
+    public void setBloodPressureL(Float bloodPressureL) {
+        this.bloodPressureL = bloodPressureL;
+    }
+
+    public Float getBloodPressureH() {
+        return bloodPressureH;
+    }
+
+    public void setBloodPressureH(Float bloodPressureH) {
+        this.bloodPressureH = bloodPressureH;
     }
 
     public String getMedicationHis() {
@@ -80,12 +88,28 @@ public class GeneralData {
         this.medicationHis = medicationHis;
     }
 
+    public String getMedicationHis_select() {
+        return medicationHis_select;
+    }
+
+    public void setMedicationHis_select(String medicationHis_select) {
+        this.medicationHis_select = medicationHis_select;
+    }
+
     public String getAllergicHis() {
         return allergicHis;
     }
 
     public void setAllergicHis(String allergicHis) {
         this.allergicHis = allergicHis;
+    }
+
+    public String getAllergicHis_select() {
+        return allergicHis_select;
+    }
+
+    public void setAllergicHis_select(String allergicHis_select) {
+        this.allergicHis_select = allergicHis_select;
     }
 
     public String getSummarize() {
@@ -95,8 +119,4 @@ public class GeneralData {
     public void setSummarize(String summarize) {
         Summarize = summarize;
     }
-
-
-
-
 }
