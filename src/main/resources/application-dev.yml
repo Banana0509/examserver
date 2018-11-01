@@ -1,0 +1,5 @@
+server:
+  context-path: /examserver
+  port: 8081
+girl:
+  cupSize: B
