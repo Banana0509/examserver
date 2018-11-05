@@ -13,7 +13,7 @@ public class SurgeryData {
     private String userId;
     private String empId;
     private String bald;
-    private String ald_select;
+    private String bald_select;
     private String lump;
     private String lump_select;
     private String skin;
@@ -27,6 +27,14 @@ public class SurgeryData {
     private String varix;
     private String varix_select;
     private String Summarize;
+
+    public String getBald_select() {
+        return bald_select;
+    }
+
+    public void setBald_select(String bald_select) {
+        this.bald_select = bald_select;
+    }
 
     public String getEmpId() {
         return empId;
@@ -52,13 +60,6 @@ public class SurgeryData {
         this.bald = bald;
     }
 
-    public String getAld_select() {
-        return ald_select;
-    }
-
-    public void setAld_select(String ald_select) {
-        this.ald_select = ald_select;
-    }
 
     public String getLump() {
         return lump;
