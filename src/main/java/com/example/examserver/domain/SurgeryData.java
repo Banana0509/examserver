@@ -11,6 +11,7 @@ import javax.persistence.Id;
 public class SurgeryData {
     @Id
     private String userId;
+    private String empId;
     private String bald;
     private String ald_select;
     private String lump;
@@ -26,6 +27,14 @@ public class SurgeryData {
     private String varix;
     private String varix_select;
     private String Summarize;
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
 
     public String getUserId() {
         return userId;

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 public class FivesensData {
     @Id
     private String userId;
+    private String empId;
     private String hearing;
     private String hearing_select;
     private String vision;
@@ -18,6 +19,14 @@ public class FivesensData {
     private String mouth;
     private String mouth_select;
     private String  Summarize;
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
 
     public String getUserId() {
         return userId;

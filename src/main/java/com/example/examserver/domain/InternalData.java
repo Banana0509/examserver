@@ -11,6 +11,7 @@ import javax.persistence.Id;
 public class InternalData {
     @Id
     private String userId;
+    private String empId;
     private String Hypertension;
     private String Hypertension_select;
     private String HeartDisease;
@@ -22,6 +23,14 @@ public class InternalData {
     private String Tumor;
     private String Tumor_select;
     private String Summarize;
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
 
     public String getUserId() {
         return userId;

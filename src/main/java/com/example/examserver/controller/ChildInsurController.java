@@ -1,12 +1,17 @@
 package com.example.examserver.controller;
 
+import com.example.examserver.ireport.ReportGenerate;
 import com.example.examserver.repository.ChildInsurRepository;
+import com.example.examserver.utils.DataBaseConfig;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.examserver.domain.ChildInsurData;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 /**
  * @author: pengnana0509@163.com
@@ -19,9 +24,16 @@ public class ChildInsurController {
     @Autowired
     private ChildInsurRepository childInsurRepository;
 
+    @Autowired
+    private DataBaseConfig dataBaseConfig;
+
+
+    private String pdfPath;
+
     @CrossOrigin
     @PostMapping(value = "/ChildInsurData")
     public ChildInsurData ChildInsurDataAdd(@RequestParam("userId") String userId,
+                                            @RequestParam("empId") String empId,
                                             @RequestParam("height") Float height,
                                             @RequestParam("weight") Float weight,
                                             @RequestParam("pre_height") Float pre_height,
@@ -35,6 +47,7 @@ public class ChildInsurController {
         logger.info("userId:"+userId);
         ChildInsurData data = new ChildInsurData();
         data.setUserId(userId);
+        data.setEmpId(empId);
         data.setHeight(height);
         data.setWeight(weight);
         data.setPre_height(pre_height);
@@ -46,6 +59,16 @@ public class ChildInsurController {
         data.setGrade_select(grade_select);
         data.setSummarize(Summarize);
         return childInsurRepository.save(data);
+    }
+
+
+    @CrossOrigin
+    @GetMapping(value = "/ChildInsurData/Report/{id}")
+    public void generateReport(@PathVariable("id") String userId,HttpServletResponse response){
+        ReportGenerate reportGenerate = new ReportGenerate(dataBaseConfig);
+        pdfPath = reportGenerate.Generate(userId,"chi");
+        reportGenerate.download(response,pdfPath);
+        logger.info(pdfPath);
     }
 
 }

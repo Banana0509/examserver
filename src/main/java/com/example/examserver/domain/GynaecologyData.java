@@ -11,6 +11,7 @@ import javax.persistence.Id;
 public class GynaecologyData {
     @Id
     private String userId;
+    private String empId;
     private String lump;
     private String lump_select;
     private String skin;
@@ -22,6 +23,14 @@ public class GynaecologyData {
     private String varix;
     private String varix_select;
     private String Summarize;
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
 
     public String getUserId() {
         return userId;

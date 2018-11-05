@@ -38,6 +38,7 @@ public class GeneralDataController {
     @CrossOrigin
     @PostMapping(value = "/GeneralData")
     public GeneralData generalDataAdd(@RequestParam("userId") String userId,
+                                      @RequestParam("empId") String empId,
                                       @RequestParam("height") Float height,
                                       @RequestParam("weight") Float weight,
                                       @RequestParam("waistline") Float waistline,
@@ -52,6 +53,7 @@ public class GeneralDataController {
         logger.info("userId:"+userId);
        GeneralData data = new GeneralData();
        data.setUserId(userId);
+       data.setEmpId(empId);
        data.setHeight(height);
        data.setWeight(weight);
        data.setWaistline(waistline);
@@ -68,16 +70,19 @@ public class GeneralDataController {
 
     @CrossOrigin
     @GetMapping(value = "/GeneralData/Report/{id}")
-    public void generateReport(@PathVariable("id") String userId){
+    public void generateReport(@PathVariable("id") String userId,HttpServletResponse response){
         ReportGenerate reportGenerate = new ReportGenerate(dataBaseConfig);
-        pdfPath = reportGenerate.Generate(userId);
+        pdfPath = reportGenerate.Generate(userId,"tpl");
+        reportGenerate.download(response,pdfPath);
         logger.info(pdfPath);
+
+
     }
 
-
+    /*
     @CrossOrigin
     @GetMapping(value="/download")
-    public void download( HttpServletResponse response){
+    public void download( HttpServletResponse response,String pdfPath){
         //通过文件的保存文件夹路径加上文件的名字来获得文件
         File file=new File(pdfPath);
         //当文件存在
@@ -118,6 +123,6 @@ public class GeneralDataController {
             }
 
         }
-    }
+    }*/
 
 }

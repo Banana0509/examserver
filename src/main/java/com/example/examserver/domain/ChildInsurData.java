@@ -11,6 +11,7 @@ import javax.persistence.Id;
 public class ChildInsurData {
     @Id
     private String userId;
+    private String empId;
     private Float height;
     private Float weight;
     private Float pre_height;
@@ -21,6 +22,14 @@ public class ChildInsurData {
     private String  grade;
     private String  grade_select;
     private String  Summarize;
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
 
     public String getUserId() {
         return userId;
