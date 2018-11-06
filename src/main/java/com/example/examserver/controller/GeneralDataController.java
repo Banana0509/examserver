@@ -65,6 +65,7 @@ public class GeneralDataController {
        data.setMedicationHis_select(medicationHis_select);
        data.setAllergicHis(allergicHis);
        data.setSummarize(Summarize);
+        logger.info(data.getSummarize());
         return generalDataRespository.save(data);
     }
 

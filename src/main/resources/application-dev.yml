@@ -3,3 +3,18 @@ server:
   port: 8081
 girl:
   cupSize: B
+spring:
+  datasource:
+    #公司oracle配置信息
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    driver: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@183.169.37.168:1521:orcl
+    sql-script-encoding: utf-8
+    username: system
+    password: oracle
+    #mysql配置信息
+    #driver-class-name: com.mysql.jdbc.Driver
+    #driver: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false
+    #username: root
+    #password: 123456
