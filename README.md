@@ -11,3 +11,7 @@ application.yml的active: dev表示使用application-dev.yml配置
 修改为active: prod则使用application-prod.yml配置，两个配置可以根据自身需要切换使用
 数据库连接配置在application-dev.yml中
 目前配置的是体检项目外网服务器
+
+#其他
+如果plsql连接oracle查看数据为中文乱码，则增加环境变量
+NLS_LANG = SIMPLIFIED CHINESE_CHINA.ZHS16GBK  即可
