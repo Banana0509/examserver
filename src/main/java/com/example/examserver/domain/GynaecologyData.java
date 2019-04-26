@@ -1,5 +1,7 @@
 package com.example.examserver.domain;
 
+import org.exolab.castor.types.DateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 public class GynaecologyData {
     @Id
     private String userId;
+    private DateTime create_time;
     private String empId;
     private String lump;
     private String lump_select;
@@ -23,7 +26,13 @@ public class GynaecologyData {
     private String varix;
     private String varix_select;
     private String Summarize;
+    public DateTime getCreate_time() {
+        return create_time;
+    }
 
+    public void setCreate_time(DateTime create_time) {
+        this.create_time = create_time;
+    }
     public String getEmpId() {
         return empId;
     }

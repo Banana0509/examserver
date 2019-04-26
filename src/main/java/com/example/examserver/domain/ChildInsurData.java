@@ -1,7 +1,9 @@
 package com.example.examserver.domain;
 
+import org.exolab.castor.types.DateTime;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
 
 /**
  * @author: pengnana0509@163.com
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 public class ChildInsurData {
     @Id
     private String userId;
+    private DateTime create_time;
     private String empId;
     private Float height;
     private Float weight;
@@ -22,6 +25,14 @@ public class ChildInsurData {
     private String  grade;
     private String  grade_select;
     private String  Summarize;
+
+    public DateTime getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(DateTime create_time) {
+        this.create_time = create_time;
+    }
 
     public String getEmpId() {
         return empId;
